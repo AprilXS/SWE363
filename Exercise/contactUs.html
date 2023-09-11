@@ -17,18 +17,39 @@
     
     <div>
         <h2>Contact Form</h2>
-        <form action="index.html" method="POST">
-            <label for="name">Name:</label>
+        <form action="confirmation.html" method="post">
+            <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            
+    
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email"  required>
+    
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" placeholder="Regarding Project" required>
+    
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message"  required></textarea>
+    
+            <label for="service">Service of Interest:</label>
+            <input type="text" id="service" name="service" list="services" >
+            <datalist id="services">
+                <option value="Web Development">
+                <option value="Graphic Design">
+                <option value="Content Writing">
+                <option value="Consultation">
+            </datalist>
+    
+            <label for="how_hear">How did you hear about us?</label>
+            <select id="how_hear" name="how_hear" required>
+                <option value="Word of Mouth">Word of Mouth</option>
+                <option value="Online Search">Online Search</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Other">Other</option>
+            </select>
+    
             <button ><a href="done.html">submit</a></button>
         </form>
+    
     </div>
 </body>
 </html>
