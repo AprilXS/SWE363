@@ -1,0 +1,20 @@
+th {
+    text-transform: uppercase;
+}
+
+a {
+    color: green;
+} 
+
+.top {
+    background-color: #EB5406;
+}
+
+em {
+    color: blue;
+}
+
+#the_most_important {
+    text-transform: uppercase;
+    background-color: gold;
+}
