@@ -18,3 +18,53 @@ em {
     text-transform: uppercase;
     background-color: gold;
 }
+
+h2 {
+    font-family: 'sans-serif';
+}
+
+h1,h2,h3,h4,h5,h6 {
+    text-transform: capitalize;
+}
+
+h2+p:first-letter {
+    font-size:x-large;
+  }
+
+  tbody tr:hover, tbody tr:hover td{
+    background-color:#faa000;
+  }
+
+  nav li {
+    display:inline;
+    margin-left: 8px;
+  }
+
+  nav ul li:first-child {
+    text-decoration:underline;
+    color:#3e4749;
+  }
+
+  tbody tr:nth-child(odd){
+    background-color: #879499;
+  }
+
+  ::selection {
+    background-color: #ff4b01;
+  }
+  
+  a:hover {
+    cursor:pointer;
+  }
+
+  input {
+    height:20px;
+  }
+
+  input:not([type="submit"]){
+    border: 2px solid gray;
+  }
+  
+  input[name="message"]{
+    height:50px;
+  }
