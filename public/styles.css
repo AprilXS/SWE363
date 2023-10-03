@@ -539,6 +539,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.flex {
+  display: flex;
+}
+
 .table {
   display: table;
 }

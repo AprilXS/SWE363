@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .cell {
+        font-family: sans-serif;
+        font-size: larger;
+        font-weight: bolder;
+        background-color: beige;
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cell:hover {
+        background-color: blanchedalmond;
+      }
+
+      .row {
+        display: flex;
+      }
+
+      .chosen-x {
+        background-color: lightcoral;
+      }
+
+      .chosen-o {
+        background-color: lightblue;
+      }
+
+      .winner {
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="turn">Now it's is <span>X</span> turn</h1>
+    <!-- Board -->
+    <div class="board">
+      <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <div class="row">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <script></script>
+    </div>
+    <div>
+      <button id="reset">Reset Game</button>
+    </div>
+    <script>
+      // JavaScript code here...
+
+      const cells = document.querySelectorAll(".cell");
+      const turnSpan = document.querySelector("#turn span");
+      const resetButton = document.querySelector("#reset");
+      let currentPlayer = "X";
+      let gameOver = false;
+
+      // Function to check for a win
+      function checkWinner() {
+        const winningPatterns = [
+          [0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8], // Rows
+          [0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8], // Columns
+          [0, 4, 8],
+          [2, 4, 6], // Diagonals
+        ];
+
+        for (const pattern of winningPatterns) {
+          const [a, b, c] = pattern;
+          if (
+            cells[a].classList.contains("chosen-" + currentPlayer) &&
+            cells[b].classList.contains("chosen-" + currentPlayer) &&
+            cells[c].classList.contains("chosen-" + currentPlayer)
+          ) {
+            gameOver = true;
+            cells[a].classList.add("winner");
+            cells[b].classList.add("winner");
+            cells[c].classList.add("winner");
+            turnSpan.textContent = `${currentPlayer} wins!`;
+          }
+        }
+      }
+
+      // Function to handle cell click
+      function handleCellClick(cell) {
+        if (
+          !cell.classList.contains("chosen-x") &&
+          !cell.classList.contains("chosen-o") &&
+          !gameOver
+        ) {
+          cell.classList.add("chosen-" + currentPlayer);
+          cell.textContent = currentPlayer;
+          checkWinner();
+          if (!gameOver) {
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            turnSpan.textContent = currentPlayer + "'s turn";
+          }
+        }
+      }
+
+      // Event listener for cell clicks
+      cells.forEach((cell) => {
+        cell.addEventListener("click", () => {
+          handleCellClick(cell);
+        });
+      });
+
+      // Event listener for reset button
+      resetButton.addEventListener("click", () => {
+        cells.forEach((cell) => {
+          cell.textContent = "";
+          cell.classList.remove("chosen-x", "chosen-o", "winner");
+        });
+        currentPlayer = "X";
+        gameOver = false;
+        turnSpan.textContent = "Now it's X's turn";
+      });
+    </script>
+  </body>
+</html>
