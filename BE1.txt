@@ -1,0 +1,7 @@
+Exercise 1 (Network inspect)
+What is the url ? https://www.youtube.com/
+How many http(s) request were made? 77 requests
+What are the different types returned from all of the requests? document, script, text/html, stylesheet/ json/ media/ mainfest, WS, Wasm
+What was the largest file returned? 262 KB data/application
+How many ms did it take? 14 ms
+
